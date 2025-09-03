@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Stack stack = new Stack();
+        int choice;
+
+        while (true) {
+            System.out.println("\n--------- Stack Menu --------");
+            System.out.println("1. Push element to stack");
+            System.out.println("2. Check the number of elements");
+            System.out.println("3. Check the top element");
+            System.out.println("4. Print and remove all elements (pop all)");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter element to push: ");
+                    int element = sc.nextInt();
+                    stack.push(element);
+                    System.out.println(element + " pushed to stack.");
+                    break;
+
+                case 2:
+                    System.out.println("Number of elements in stack: " + stack.size());
+                    break;
+
+                case 3:
+                    if (!stack.isEmpty()) {
+                        System.out.println("Top element: " + stack.peek());
+                    } else {
+                        System.out.println("Stack is empty.");
+                    }
+                    break;
+
+                case 4:
+                    if (!stack.isEmpty()) {
+                        System.out.println("Popping all elements:");
+                        while (!stack.isEmpty()) {
+                            System.out.println(stack.pop());
+                        }
+                    } else {
+                        System.out.println("Stack is empty.");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Exiting...");
+                    sc.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+}
